@@ -32,4 +32,5 @@ int main()
  cin>>a>>b;
  cout<<"Maths="<<mathematics::calculations(a,b)<<endl;
  cout<<"Physics="<<physics::calculations(a,b)<<endl;
+ return 0;
 }
