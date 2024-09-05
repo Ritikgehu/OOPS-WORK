@@ -53,4 +53,5 @@ int main(){
 hotel h;
 h.checkin();
 h.checkout();
+return 0;
 }
