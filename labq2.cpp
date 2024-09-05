@@ -14,5 +14,6 @@ for(int i=0;str[i]!='\0';i++)
  if(str[i]!=ch)
  cout<<str[i];
 }
+ return 0;
 }
 
