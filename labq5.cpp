@@ -1,36 +1,37 @@
-/*Q5. You are given an array A of N elements. Now, you need to choose the best index of this array A. An index of the array 
-is called best if the special sum of this index is maximum across the special sum of all the other indices.*/
-
-#include<iostream>
+/*Implement a C++ program to demonstrate the concept of data abstraction using the concept of Class and Objects.
+*/
+#include <iostream>
+#include <sstream>
 using namespace std;
-int spsum(int arr[],int j,int n){
- int indx = j+1,pair = 2;
- int specialsum = arr[j];
- while(indx+pair<=n){
- for(int k = indx ;k<indx+pair;k++){ 
- specialsum+=arr[k];
- }
- indx+=pair;
- pair++;
- }
- return specialsum;
+class student
+{
+private:
+string name;
+int roll;
+int std_id;
+public:
+void getdata()
+{
+cout << "Enter Name =";
+getline(cin, name);
+cout << "Enter Roll No =";
+cin >> roll;
+cout << "Enter Student id=";
+cin >> std_id;
 }
-int main(){
- int n;
- cin>>n;
- int arr[n];
- for(int i=0;i<n;i++){
- cin>>arr[i];
- }
- int maxspsum = 0;
- int index=0;
- for(int i=0;i<n;i++){
- int a = spsum(arr,i,n);
- if(maxspsum < a) 
- maxspsum = a;
- index = i;
- }
- cout<<"The max value is "<<maxspsum;
- cout<<" at index "<<index;
- return 0;
+void display();
+};
+void student::display()
+{
+cout << "Details of Student=" << endl;
+cout << "Name =" << name << endl;
+cout << "Roll=" << roll << endl;
+cout << "Student id=" << std_id << endl;
+}
+int main()
+{
+student s1;
+s1.getdata();
+s1.display();
+return 0;
 }
