@@ -1,57 +1,44 @@
-/*Q8. Define a class named `Hotel` in C++ with the following specifications: 
-Private Members: 
-- Rno: Data member to store the room number. 
-- Name: Data member to store the customer's name. 
-- Tariff: Data member to store the per-day charges. 
-- NOD: Data member to store the number of days of stay. 
-- CALC (): Function to calculate and return the total amount as `NOD * Tariff`. If the value of `NOD * Tariff` exceeds 
-10,000, the total amount should be calculated as `1.05 * NOD * Tariff` 
-Public Members: 
-- Checkin(): Function to input the values for `Rno`, `Name`, `Tariff`, and `NOD`. 
-- Checkout (): Function to display the values of `Rno`, `Name`, `Tariff`, `NOD`, and the total amount. 
-- The total amount should be calculated by calling the `CALC ()` function.*/
-
-#include<iostream> 
-#include<string> 
+/*Anna is a contender for valedictorian of her high school. She wants to know how many students (if any) have scored 
+higher than her in the exams given during this semester. Create a class named Student with the following specifications:
+An instance variable named scores holds a student's 5 exam scores.
+A void input () function reads 5 integers and saves them to scores.
+An int calculateTotalScore() function that returns the sum of the student's scores.*/
+#include <iostream>
 using namespace std;
-class hotel{ 
- private:
-int rno;
-string name;
-int tariff;
-int NOD;
-double calc()
-{
- int a=NOD*tariff;
- if (a>10000) {
-return 1.05*a;
-}
-else{
- return a;
-}
-}
+class Student {
+private:
+int scores[5];
 public:
-void checkin(){
-cout<<"enter room no."<<endl;
-cin>>rno;
-cout<<"enter name"<<endl;
-cin>>name;
-cout<<"enter tariff"<<endl;
-cin>>tariff;
-cout<<"enter nod"<<endl;
-cin>>NOD;
+void input() {
+for (int i = 0; i < 5; i++) {
+cin >> scores[i];
 }
-void checkout(){
-cout<<"\nRoom no: "<<rno<<endl;
-cout<<"Name: "<<name<<endl;
-cout<<"Tariff: "<<tariff<<endl;
-cout<<"No. of days: "<<NOD<<endl;
-cout<<"amount:"<<calc();
+}
+int calculateTotalScore() const {
+int total = 0;
+for (int i = 0; i < 5; i++) {
+total += scores[i];
+}
+return total;
 }
 };
-int main(){
-hotel h;
-h.checkin();
-h.checkout();
+int main() {
+int n;
+cout << "Enter number of students: ";
+cin >> n;
+Student* students = new Student[n];
+for (int i = 0; i < n; i++) {
+cout << "Enter scores for student " << (i + 1) << ": ";
+students[i].input();}
+Student anna;
+cout << "Enter Anna's scores: ";
+anna.input();
+int anna_total_score = anna.calculateTotalScore();
+int higher_count = 0;
+for (int i = 0; i < n; i++) {
+if (students[i].calculateTotalScore() > anna_total_score) {
+higher_count++;}}
+cout << higher_count << endl;
+delete[] students;
 return 0;
 }
