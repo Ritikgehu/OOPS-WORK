@@ -1,36 +1,25 @@
-/* Q3.Create two namespaces, Math and Physics, each containing a function calculate(). The calculate() function in the 
-Math namespace should display a message indicating a mathematical calculation, while the calculate() function in the 
-Physics namespace should display a message indicating a physical calculation. Use these functions in the main program 
-without causing naming conflicts.*/
+/* Q3.Implement a C++ program to find the non-repeating characters in string.*/
 
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
-namespace mathematics
-{
- int calculations(int a,int b)
- {
- int sum=a+b;
- return sum;
- }
-}
-namespace physics
-{
- int calculations(int a,int b)
- {
- int dist;
- if(a>b)
- dist=a-b;
- else
- dist=b-a;
- return dist;
- }
-}
 int main()
 {
- int a,b;
- cout<<"Enter value of a and b"<<endl;
- cin>>a>>b;
- cout<<"Maths="<<mathematics::calculations(a,b)<<endl;
- cout<<"Physics="<<physics::calculations(a,b)<<endl;
+ string s;
+ cout << "Enter a string: ";
+ getline(cin, s);
+ int count[26] = {0};
+ int n = s.length();
+ for (int i = 0; i < n; i++)
+ {
+ count[s[i] - 'a']++;
+ }
+ for (int i = 0; i < n; i++)
+ {
+ if (count[s[i] - 'a'] == 1)
+ {
+ cout << s[i] << " ";
+ }
+ }
  return 0;
 }
